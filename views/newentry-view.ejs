@@ -1,3 +1,14 @@
 <!-- This view allows user to create and post a new blog entry. -->
 
 <h1><%= title %></h1>
+
+<form name="entryform" method="post" action="/newentry">
+	Entry Title:
+	<br>
+	<input type="text" name="entrytitle">
+	<br> Entry Content:
+	<br>
+	<input type="text" name="entrycontent">
+	<br>
+	<button type="submit">submit</button>
+</form>

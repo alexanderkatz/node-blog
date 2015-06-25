@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET newpost. */
-router.get('/newentry', function (req, res, next) {
+router.get('/newentry', function (req, res) {
 	res.render('newentry-view', {
 		title: 'New Post'
 	});
@@ -18,8 +18,8 @@ router.get('/newentry', function (req, res, next) {
 /* Get All Entries */
 router.get('/blogroll', function (req, res, next) {
 	var db = req.db;
-	var entries = db.get('entrycollection');
-	entries.find({},{}, function (e,docs) {
+	var collection = db.get('entrycollection');
+	collection.find({},{}, function (e,docs) {
 		res.render('blogroll-view', {
 			title: 'All Posts',
 			"entries" : docs
@@ -29,6 +29,26 @@ router.get('/blogroll', function (req, res, next) {
 
 
 /* POST to entry. */
-router.post('/postentry', function (req, res, next) {});
+router.post('/postentry', function (req, res) {
+	var db = req.db;
+
+	var entrytitle = req.body.entrytitle;
+	var entrycontent = req.body.entrycontent;
+
+	var collection = db.get('entrycollection');
+
+	collection.insert({
+		"entrytitle": entrytitle,
+		"entrycontent": entrycontent
+	}, function (err, doc){
+		if (err) {
+			// if it failed, return error
+			res.send("Didn't add to database");
+		} else {
+			// forward to success page
+			res.redirect("blogroll");
+		}
+	});
+});
 
 module.exports = router;

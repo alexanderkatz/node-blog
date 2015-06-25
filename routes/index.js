@@ -15,20 +15,17 @@ router.get('/newentry', function (req, res, next) {
 	});
 });
 
+/* Get All Entries */
 router.get('/blogroll', function (req, res, next) {
 	var db = req.db;
-	res.render('blogroll-view', {
-		title: 'All Posts'
+	var entries = db.get('entrycollection');
+	entries.find({},{}, function (e,docs) {
+		res.render('blogroll-view', {
+			title: 'All Posts',
+			"entries" : docs
+		});
 	});
 });
-
-
-
-//	var collection = db.get('entrycollection');
-//	collection.find({}, {}, function (e, docs) {
-
-//	})
-
 
 
 /* POST to entry. */

@@ -13,3 +13,11 @@ a {
   margin-right: auto;
   float:none !important;
 }
+
+.title-autowidth{
+	float:left;
+}
+
+#editbuttons{	
+	margin-top: 20px;
+}

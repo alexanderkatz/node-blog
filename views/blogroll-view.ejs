@@ -3,14 +3,27 @@
 <!-- Include Head -->
 <% include header.ejs %>
 
+<!-- Entry Title and Edit Buttons -->
+    <% for(var i=0; i<entries.length; i++) {%>
 <div class="row">
-    <div class="col-xs-12 center-block">
-        <% for(var i=0; i<entries.length; i++) {%>
-           <h1><%= entries[i].entrytitle %></h1>
+	<div class="title-autowidth">
+		<h1><%= entries[i].entrytitle %></h1>
+	</div>
+	<div class="col-md-6">
+		<div id="editbuttons" class="btn-group" role="group" aria-label="...">
+		  <button type="button" class="btn btn-default">Edit</button>
+		  <button type="button" class="btn btn-default btn-danger">Delete</button>
+		</div>		
+	</div>
+</div>
+<!-- Entry Content -->
+<div class="row">
+	<div class="col-xs-12 center-block">
            <p><%= entries[i].entrycontent %></p>
         <% } %>
     </div>
 </div>
-
 <!-- Include Footer -->
 <% include footer.ejs %>
+
+

@@ -1,5 +1,8 @@
 <!-- This view displays all the blog posts -->
 
+<!-- Include Head -->
+<% include header.ejs %>
+
 <h1><%= title %></h1>
 
 <ul>
@@ -8,3 +11,6 @@
    <li><%= entries[i].entrycontent %></li>
 <% } %>
 </ul>
+
+<!-- Include Footer -->
+<% include footer.ejs %>

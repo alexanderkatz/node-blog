@@ -1,5 +1,8 @@
 <!-- This view allows user to create and post a new blog entry. -->
 
+<!-- Include Head -->
+<% include header.ejs %>
+
 <h1><%= title %></h1>
 
 <form name="entryform" method="post" action="/postentry">
@@ -12,3 +15,6 @@
 	<br>
 	<button type="submit">submit</button>
 </form>
+
+<!-- Include Footer -->
+<% include footer.ejs %>

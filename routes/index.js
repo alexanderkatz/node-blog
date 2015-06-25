@@ -27,7 +27,6 @@ router.get('/blogroll', function (req, res, next) {
 	});
 });
 
-
 /* POST to entry. */
 router.post('/postentry', function (req, res) {
 	var db = req.db;
@@ -50,5 +49,7 @@ router.post('/postentry', function (req, res) {
 		}
 	});
 });
+
+/* DELETE entry*/
 
 module.exports = router;

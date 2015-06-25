@@ -3,14 +3,14 @@
 <!-- Include Head -->
 <% include header.ejs %>
 
-<h1><%= title %></h1>
-
-<ul>
-<% for(var i=0; i<entries.length; i++) {%>
-   <li><%= entries[i].entrytitle %></li>
-   <li><%= entries[i].entrycontent %></li>
-<% } %>
-</ul>
+<div class="row">
+    <div class="col-xs-12 center-block">
+        <% for(var i=0; i<entries.length; i++) {%>
+           <h1><%= entries[i].entrytitle %></h1>
+           <p><%= entries[i].entrycontent %></p>
+        <% } %>
+    </div>
+</div>
 
 <!-- Include Footer -->
 <% include footer.ejs %>

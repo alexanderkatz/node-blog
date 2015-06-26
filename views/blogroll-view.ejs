@@ -12,7 +12,8 @@
 	<div class="col-md-6">
 		<div id="editbuttons" class="btn-group" role="group" aria-label="...">
 		  <button type="button" class="btn btn-default">Edit</button>
-		  <button type="button" id="<%= entries[i]._id %>" class="btn btn-default btn-danger">Delete</button>
+
+		  <button onclick="deleteEntry('<%= entries[i]._id %>')" type="button" id="<%= entries[i]._id %>" class="btn btn-default btn-danger">Delete</button>
 		</div>		
 	</div>
 </div>

@@ -1,3 +1,12 @@
 function deleteEntry(entryID){
-	console.log("deleteEntry has been called on: "+entryID);
+	$.ajax({
+        url: '/deleteentry',
+        type: 'DELETE',
+        error: function(result){
+            console.log("error: "+result);
+        },
+        success: function(result){
+            console.log("success with: " + result);
+        }
+    });
 }

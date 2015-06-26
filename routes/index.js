@@ -51,5 +51,8 @@ router.post('/postentry', function (req, res) {
 });
 
 /* DELETE entry*/
+router.delete('/deleteentry', function (req, res) {
+	res.send("delete endpoint hit");
+});
 
 module.exports = router;

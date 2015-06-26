@@ -8,13 +8,6 @@ router.get('/', function (req, res, next) {
 	});
 });
 
-/* GET newpost. */
-router.get('/newentry', function (req, res) {
-	res.render('newentry-view', {
-		title: 'New Post'
-	});
-});
-
 /* Get All Entries */
 router.get('/blogroll', function (req, res, next) {
 	var db = req.db;
@@ -27,18 +20,28 @@ router.get('/blogroll', function (req, res, next) {
 	});
 });
 
+/* GET newpost. */
+router.get('/newpost', function (req, res) {
+	res.render('newpost-view', {
+		title: 'New Post'
+	});
+});
+
+
 /* POST to entry. */
-router.post('/postentry', function (req, res) {
+router.post('/insertpost', function (req, res) {
+	console.log("insertpost");
+	
 	var db = req.db;
 
-	var entrytitle = req.body.entrytitle;
-	var entrycontent = req.body.entrycontent;
+	var title = req.body.title;
+	var content = req.body.content;
 
 	var collection = db.get('entrycollection');
 
 	collection.insert({
-		"entrytitle": entrytitle,
-		"entrycontent": entrycontent
+		"title": title,
+		"content": content
 	}, function (err, doc){
 		if (err) {
 			// if it failed, return error

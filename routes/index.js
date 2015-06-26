@@ -52,6 +52,11 @@ router.post('/postentry', function (req, res) {
 
 /* DELETE entry*/
 router.delete('/deleteentry', function (req, res) {
+	var db = req.db;
+	// console.log("----------------------------");
+	// console.log(req.body.entryid);
+	var collection = db.get('entrycollection');
+	collection.remove({ _id: req.body.entryid });
 	res.send("delete endpoint hit");
 });
 

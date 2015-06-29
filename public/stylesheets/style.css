@@ -1,5 +1,6 @@
 body {
   padding: 50px;
+  background-color: rgb(242,243,241) !important;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -20,6 +21,7 @@ a {
 
 .page-title{
     font-family: geomanistlight;
+    color: #62548C;
 }
 
 #editbuttons{	

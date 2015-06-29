@@ -7,14 +7,17 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="fonts/typography.css">
+    <!-- Reset -->
+    <link rel="stylesheet" href="stylesheets/reset.css">
+
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 
 </head>
 
 <body>
 
-<div class="container-fluid">
+<div id="mycontainer" class="center-block">
     <div class="row">
         <ul class="nav nav-tabs">
             <li><a href="newpost">New Post</a></li>
@@ -22,6 +25,6 @@
         </ul>
     </div>
 
-    <div class="page-title">
-        <h1><%= title %></h1>
+    <div>
+        <h1 class="page-title"><%= title %></h1>
     </div>

@@ -1,11 +1,22 @@
 body {
-  padding: 50px;
+
   background-color: rgb(242,243,241) !important;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+#mycontainer{
+  width:100%;
+  max-width: 960px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
 }
 
 .center-block {
@@ -15,6 +26,8 @@ a {
   float:none !important;
 }
 
+.fl{float: left}
+
 .title-autowidth{
 	float:left;
 }
@@ -22,6 +35,8 @@ a {
 .page-title{
     font-family: geomanistlight;
     color: #62548C;
+    padding-bottom: 40px;
+    font-size: 54px;
 }
 
 #editbuttons{	
@@ -29,6 +44,58 @@ a {
 }
 
 /* New Post ****************************************************/
+#newpost-top, #newpost-top a{
+  font-family: geomanistlight;
+  color: #62548C;
+}
+
+/* text area */
 #newpost-content{
-	width:;
+  position: relative;
+  top: 50px;
+  clear: both;
+  display: block;
+  width: 100%;
+  height: 300px;
+  resize:none;
+  outline:none;
+} 
+
+#entryform{}
+#entrytitleinput{
+  font-size: 30px;
+  float:left;
+  outline: none;
+}
+
+/*save, publish, delete*/
+#newpost-controls{
+  float:right;
+  font-size: 24px;
+  padding: 0px;
+  margin: 0px;
+  padding-right: 30px;
+
+}
+
+#newpost-controls li{
+  list-style: none;
+  float:left;
+  padding-left: 18px;
+}
+
+@media all and (max-width: 768px) {
+  #entrytitleinput,
+  #newpost-controls{
+    float:none;
+    padding-top: 25px;
+    padding-left: 0px;
+  }
+  #newpost-controls li{
+    padding-left: 0px;
+    padding-right: 18px;
+  }
+  #newpost-content{
+    top: 25px;
+  } 
 }

@@ -3,22 +3,24 @@
 <!-- Include Head -->
 <% include header.ejs %>
 
-<form name="entryform" method="post" action="/insertpost">
-	<div class="row">
-		<div class="col">
-			<input type="text" name="title" class="form-control" placeholder="title">
-		</div>
-		<div class="col">
-			<ul>
-				<li><a href="#">save</a></li>
-				<li><a href="#">publish</a></li>
-				<li><a href="#">delete</a></li>
-			</ul>
-		</div>
+<form id="entryform" name="entryform" method="post" action="/insertpost">
+<div id="newpost-top">
+	<div class="">
+  		<input id="entrytitleinput" type="text" name="title" placeholder="title">	
 	</div>
-	<textarea id="newpost-content" type="text" name="content" class="form-control" rows="10"></textarea>
 	
-	<button class="btn btn-default" type="submit">Submit</button>
+	<ul id="newpost-controls">
+		<li><a href="#">save</a></li>
+		<li>•</li>
+		<li><a href="#">publish</a></li>
+		<li>•</li>
+		<li><a href="#">delete</a></li>
+	</ul>
+
+</div>
+
+<textarea id="newpost-content" type="text" name="content" class="form-control" rows="10"></textarea>
+	
 </form>
 
 <!-- Include Footer -->

@@ -45,9 +45,11 @@ router.post('/insertpost', function (req, res) {
 	}, function (err, doc){
 		if (err) {
 			// if it failed, return error
+			console.log("Didn't add to database");
 			res.send("Didn't add to database");
 		} else {
 			// forward to success page
+			console.log("Success!");
 			res.redirect("blogroll");
 		}
 	});

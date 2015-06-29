@@ -14,3 +14,25 @@ function deleteEntry(entryID){
         }
     });
 }
+
+$("#publish-post").click(function(){
+    $.ajax({
+        url: '/insertpost',
+        type: 'POST',
+        data: $("#entryform").serializeArray(),
+        error: function(result){
+            console.log("error: "+result);
+        },
+        success: function(result){
+            console.log("success with: " + result);
+            // here we need to redisplay the blogroll
+            // location contains information about current url
+            window.location.replace("/blogroll");
+    }
+    });
+});
+
+// POST a new entry
+// function postEntry(){
+
+// }

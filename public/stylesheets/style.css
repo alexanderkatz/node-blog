@@ -18,6 +18,10 @@ a {
 	float:left;
 }
 
+.page-title{
+    font-family: geomanistlight;
+}
+
 #editbuttons{	
 	margin-top: 20px;
 }

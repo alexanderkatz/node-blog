@@ -1,13 +1,15 @@
+* {
+   background-color: rgb(242,243,241); 
+}
+
 body {
 
   background-color: rgb(242,243,241) !important;
 }
 
 #mycontainer{
-  width:100%;
+  width:90%;
   max-width: 960px;
-  padding-left: 15px;
-  padding-right: 15px;
 }
 
 
@@ -44,21 +46,26 @@ a:hover{
 }
 
 /* New Post ****************************************************/
-#newpost-top, #newpost-top a{
+#newpost-top, #newpost-top a, #entrytitleinput {
   font-family: geomanistlight;
   color: #62548C;
 }
 
 /* text area */
 #newpost-content{
+  font-family: "brelaregular";
+  padding: 20px;
   position: relative;
   top: 50px;
   clear: both;
   display: block;
-  width: 100%;
+  width: calc(100% - 4px);
   height: 300px;
   resize:none;
   outline:none;
+  border: solid 2px;
+  font-size: 18px;
+  box-sizing: border-box;
 } 
 
 #entryform{}
@@ -66,6 +73,9 @@ a:hover{
   font-size: 30px;
   float:left;
   outline: none;
+  width: 200px;
+  border:none;
+  border-bottom: solid 2px;
 }
 
 /*save, publish, delete*/

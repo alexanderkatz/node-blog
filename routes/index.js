@@ -27,6 +27,13 @@ router.get('/newpost', function (req, res) {
 	});
 });
 
+/* GET userlist. */
+router.get('/userlist', function (req, res) {
+	res.render('userlist-view', {
+		title: 'User List'
+	});
+});
+
 
 /* POST to entry. */
 router.post('/insertpost', function (req, res) {

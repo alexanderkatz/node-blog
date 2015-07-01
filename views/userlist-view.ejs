@@ -1,0 +1,30 @@
+<!-- This view displays a table of the users -->
+
+<!-- Include Head -->
+<% include header.ejs %>
+<span id="userInfoName"></span>
+<br>
+<span id="userInfoAge"></span>
+<br>
+<span id="userInfoGender"></span>
+<br>
+<span id="userInfoLocation"></span>
+<br>
+
+<table id="usertable">
+  <thead>
+    <tr>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Delete?</th>
+    </tr>
+  </thead>
+    <tbody></tbody>
+</table>
+
+<!--JQUERY-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="javascripts/usertable.js"></script>
+<!-- Include Footer -->
+<% include footer.ejs %>

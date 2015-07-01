@@ -1,97 +1,118 @@
 * {
-   background-color: rgb(242,243,241); 
+	background-color: rgb(242, 243, 241);
 }
 
 body {
-
-  background-color: rgb(242,243,241) !important;
+	background-color: rgb(242, 243, 241) !important;
 }
 
-#mycontainer{
-  width:90%;
-  max-width: 960px;
+#mycontainer {
+	width: 90%;
+	max-width: 960px;
 }
-
 
 a {
-  color: #00B7FF;
-  text-decoration: none;
+	color: #00B7FF;
+	text-decoration: none;
 }
-a:hover{
-  text-decoration: underline;
+
+a:hover {
+	text-decoration: underline;
 }
 
 .center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  float:none !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
 }
 
-.fl{float: left}
-
+.fl {
+	float: left
+}
+/*
 .title-autowidth{
 	float:left;
 }
+*/
 
-.page-title{
-    font-family: geomanistlight;
-    color: #62548C;
-    padding-bottom: 40px;
-    font-size: 54px;
+.page-title {
+	font-family: geomanistlight;
+	color: #62548C;
+	padding-bottom: 40px;
+	font-size: 54px;
 }
 
-#editbuttons{	
+#editbuttons {
 	margin-top: 20px;
 }
+/* Post ****************************************************/
 
+.post {
+	font-family: "brelaregular";
+}
+
+.post-title {
+	float: left;
+	font-size: 30px;
+	font-family: geomanistlight;
+}
+
+.post-content {
+	font-size: 20px;
+	clear: both;
+	margin-top:25px;
+}
 /* New Post ****************************************************/
-#newpost-top, #newpost-top a, #entrytitleinput {
-  font-family: geomanistlight;
-  color: #62548C;
-}
 
+#newpost-top,
+#newpost-top a,
+#entrytitleinput {
+	font-family: geomanistlight;
+	color: #62548C;
+}
 /* text area */
-#newpost-content{
-  font-family: "brelaregular";
-  padding: 20px;
-  position: relative;
-  top: 50px;
-  clear: both;
-  display: block;
-  width: calc(100% - 4px);
-  height: 300px;
-  resize:none;
-  outline:none;
-  border: solid 2px;
-  font-size: 18px;
-  box-sizing: border-box;
-} 
 
-#entryform{}
-#entrytitleinput{
-  font-size: 30px;
-  float:left;
-  outline: none;
-  width: 200px;
-  border:none;
-  border-bottom: solid 2px;
+#newpost-content {
+	font-family: "brelaregular";
+	padding: 20px;
+	position: relative;
+	top: 50px;
+	clear: both;
+	display: block;
+	width: calc(100% - 4px);
+	height: 300px;
+	resize: none;
+	outline: none;
+	border: solid 2px;
+	font-size: 18px;
+	box-sizing: border-box;
 }
 
+#entryform {}
+
+#entrytitleinput {
+	font-size: 30px;
+	float: left;
+	outline: none;
+	width: 200px;
+	border: none;
+	border-bottom: solid 2px;
+}
 /*save, publish, delete*/
-#newpost-controls{
-  float:right;
-  font-size: 24px;
-  padding: 0px;
-  margin: 0px;
-  padding-right: 30px;
 
+#newpost-controls {
+	float: right;
+	font-size: 24px;
+	padding: 0px;
+	margin: 0px;
+	padding-right: 30px;
 }
 
-#newpost-controls li{
-  list-style: none;
-  float:left;
-  padding-left: 18px;
+#newpost-controls li {
+	list-style: none;
+	float: left;
+	padding-left: 18px;
 }
 
 @media all and (max-width: 768px) {
@@ -118,4 +139,18 @@ table, th, td {
 
 th, td {
   padding: 5px;
+}
+
+#entrytitleinput,
+#newpost-controls {
+	float: none;
+	padding-top: 25px;
+	padding-left: 0px;
+}
+#newpost-controls li {
+	padding-left: 0px;
+	padding-right: 18px;
+}
+#newpost-content {
+	top: 25px;
 }

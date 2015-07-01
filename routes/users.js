@@ -11,4 +11,17 @@ router.get('/userlist', function(req,res){
     });
 });
 
+/* POST new user to db */
+router.post('/insertuser', function(req,res){
+	var db=req.db;
+	var collection = db.get('userlist');
+
+	collection.insert(req.body, function(err,result){
+		res.send(
+			(err===null) ? {msg: ''} : {msg: err}
+		);
+	});		
+});
+
+
 module.exports = router;

@@ -12,6 +12,9 @@ $(document).ready(function(){
     // add userButton click
     $('#btnAddUser').on('click', addUser);
 
+    // delete a user
+    $('#usertable tbody').on('click','td a.linkdeleteuser', deleteUser);
+
 });
 
 // Functions =============================================================
@@ -117,3 +120,32 @@ function addUser(event){
         return false;
     }
 };
+
+function deleteUser(event){
+    event.preventDefault();
+
+    //pop up confirmation dialogue
+    var confirmation = confirm("Are you sure you want to delete this user?");
+
+    // check to make sure the user confirmed
+    if (confirmation === true){
+        // if they did, do our delete
+        $.ajax({
+            type: 'DELETE',
+            url: '/users/deleteuser/'+$(this).attr('rel')
+        }).done(function(response) {
+            // check for successful blank response
+            if (response.msg === ''){
+                //update the table
+                populateTable();
+            }
+            else{
+                // if something goes wrong alert error msg that our service returned
+                alert("error: "+response.msg);
+            }
+        });
+    } else {
+        // if they said no to the confirm do nothing
+        return false;
+    }
+}

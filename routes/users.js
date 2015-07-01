@@ -23,5 +23,21 @@ router.post('/insertuser', function(req,res){
 	});		
 });
 
+// DELETE a user from the db
+router.delete('/deleteuser/:id', function(req,res){
+    console.log(req.params.id);
+    var db = req.db;
+    var collection = db.get('userlist');
+
+    var userToDelete = req.params.id;
+    collection.remove({
+        '_id': userToDelete
+    }, function(err){
+        res.send(
+            (err === null) ? {msg: ''} : {msg: err}
+        );  
+    });
+});
+
 
 module.exports = router;

@@ -62,6 +62,7 @@ function showUserInfo(event) {
     $('#userInfoGender').text(thisUserObject.gender);
     console.log(thisUserObject.gender);
     $('#userInfoLocation').text(thisUserObject.location);
+    $('#userInfoId').text(thisUserObject._id);
 };
 
 /* addUser function */

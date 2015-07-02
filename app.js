@@ -47,7 +47,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+// Routes
+require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
+
 app.listen(port);
+console.log('The magic happens on port ' + port);
+
 
 // Make our db accessible to our router
 app.use(function(req,res,next){
@@ -55,8 +60,8 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use('/', routes);
-app.use('/users', users);
+// app.use('/', routes);
+// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -56,12 +56,10 @@ app.use(function(req,res,next){
 
 // Routes
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
+app.use('/users', users);
 
 app.listen(port);
 console.log('The magic happens on port ' + port);
-
-// app.use('/', routes);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

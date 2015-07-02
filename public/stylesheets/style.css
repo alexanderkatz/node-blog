@@ -11,6 +11,21 @@ body {
 	max-width: 960px;
 }
 
+#menu{
+	height: 25px;
+	padding:10px;
+	width: 100%;
+}
+
+#menu ul{
+	float:right;
+}
+
+#menu ul li{
+	float: left; 
+	padding-right: 15px;
+}
+
 a {
 	color: #00B7FF;
 	text-decoration: none;

@@ -20,7 +20,7 @@ var monk = require('monk');
 
 // configuration ===============================================================
 
-var db = monk('localhost:27017/nodeblog');
+var db = monk(configDB.url);
 
 // require('./config/passport')(passport); // pass passport for configuration
 
@@ -47,18 +47,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
 
+// Make our db accessible to our router
+// MUST BE ABOVE ROUTES
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
+
 // Routes
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
 
 app.listen(port);
 console.log('The magic happens on port ' + port);
-
-
-// Make our db accessible to our router
-app.use(function(req,res,next){
-    req.db = db;
-    next();
-});
 
 // app.use('/', routes);
 // app.use('/users', users);

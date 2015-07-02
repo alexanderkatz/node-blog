@@ -138,16 +138,3 @@ function isLoggedIn(req,res,next){
 		res.redirect('/');
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

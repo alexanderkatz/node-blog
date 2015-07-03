@@ -22,7 +22,7 @@ var monk = require('monk');
 
 var db = monk(configDB.url);
 
-// require('./config/passport')(passport); // pass passport for configuration
+require('./config/passport')(passport); // pass passport for configuration
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

@@ -3,8 +3,6 @@ module.exports = function(app, passport){
 	var express = require('express');
 	// var router = express.Router();
 
-
-
 	/* Get All Entries */
 	app.get('/blogroll', function (req, res, next) {
 		var db = req.db;
@@ -91,7 +89,11 @@ module.exports = function(app, passport){
 	});
 
 	// process the login form
-	// app.post('/login', do all our passport stuff here);
+	app.post('/login', passport.authenticate('local-login', {
+		successRedirect : '/profile', // redirect to the secure profile section
+		failureRedirect: '/login', // redirect back to the login page if error
+		failureFlash: true // allow flash messages
+	}));
 
 	// =====================================
 	// SIGNUP ==============================

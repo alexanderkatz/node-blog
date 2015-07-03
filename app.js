@@ -6,8 +6,7 @@ var port = process.env.PORT || 8080;
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var passport = require('passport');
-var flash    = require('connect-flash');
-
+var flash = require('connect-flash');
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
@@ -46,6 +45,7 @@ app.use(session({secret:'hititwithacrayon'}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // Make our db accessible to our router
 // MUST BE ABOVE ROUTES

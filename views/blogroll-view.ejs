@@ -4,23 +4,25 @@
 <% include header.ejs %>
 
 <!-- Entry Title and Edit Buttons -->
-    <% for(var i=0; i<entries.length; i++) {%>
-<div class="post">
-	<div>
-		<!-- Post Title -->
-		<h1 class="post-title"><%= entries[i].title %></h1>
-		<!-- Edit Buttons -->
-		<div id="editbuttons" class="" role="group" >
-		  <button type="button" class="btn btn-default">Edit</button>
-		  <button onclick="deleteEntry('<%= entries[i]._id %>')" type="button" id="<%= entries[i]._id %>" class="">Delete</button>
+<% for(var i=0; i<entries.length; i++) {%>
+<div class="post center-block">
+		<div class="title-row t-wrapper">
+			<!-- Post Title -->
+			<h1 class="post-title"><%= entries[i].title %></h1>
+			<!-- Edit Buttons -->
+			<div id="editbuttons" class="t-cell" role="group" >
+			  <button type="button" class="edit">edit</button>
+			  <button onclick="deleteEntry('<%= entries[i]._id %>')" type="button" id="<%= entries[i]._id %>" class="delete">delete</button>
+			</div>
 		</div>		
-	</div>
 	<!-- Entry Content -->
 		<div class="post-content">
 			   <p><%= entries[i].content %></p>
-			<% } %>
 		</div>
-	</div>
+</div>
+<div class="post-divider"></div>
+<% } %>
+
 <!-- Include Footer -->
 <% include footer.ejs %>
 

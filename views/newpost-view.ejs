@@ -2,26 +2,26 @@
 
 <!-- Include Head -->
 <% include header.ejs %>
-
-<form id="entryform" name="entryform" method="post" action="/insertpost">
-<div id="newpost-top">
-	<div class="">
-  		<input id="entrytitleinput" type="text" name="title" placeholder="title">	
+<div class="center-block width">
+	<form id="entryform" name="entryform" method="post" action="/insertpost">
+	<div id="newpost-top">
+		<div class="">
+	  		<input id="entrytitleinput" type="text" name="title" placeholder="title">	
+		</div>
+		
+		<ul id="newpost-controls">
+			<li id="save-post">save</li>
+			<li>•</li>
+			<li id="publish-post">publish</li>
+			<li>•</li>
+			<li id="delete-post">delete</li>
+		</ul>
 	</div>
-	
-	<ul id="newpost-controls">
-		<li id="save-post">save</li>
-		<li>•</li>
-		<li id="publish-post">publish</li>
-		<li>•</li>
-		<li id="delete-post">delete</li>
-	</ul>
 
+	<textarea id="newpost-content" type="text" name="content" class="form-control" rows="10" placeholder="enter post here"></textarea>
+	
+	</form>
 </div>
-
-<textarea id="newpost-content" type="text" name="content" class="form-control" rows="10" placeholder="enter post here"></textarea>
-	
-</form>
 
 <!-- Include Footer -->
 <% include footer.ejs %>

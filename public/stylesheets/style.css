@@ -3,17 +3,50 @@
 }
 
 body {
-	background-color: rgb(242, 243, 241) !important;
+	padding: 10px;
+}
+/* UTILITY CLASSES ****************************************************
+***********************************************************************/
+/*Vertical Centering using table method*/
+.t-wrapper {display:table;}
+.t-cell {display:table-cell; vertical-align:middle;}
+
+/*Horizontal Block Centering*/
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
+}
+.width{	
+	width: 90%; 
+	max-width: 900px;
 }
 
-#mycontainer {
-	width: 90%;
-	max-width: 960px;
+/* Styles for page border */
+#top, #bottom, #left, #right {
+	background: white;
+	position: fixed;
+	}
+#left, #right {
+	top: 0; bottom: 0;
+	width: 10px;
 }
+#left { left: 0; }
+#right { right: 0; }		
+#top, #bottom {
+	left: 0; right: 0;
+	height: 15px;
+}
+#top { top: 0; }
+#bottom { bottom: 0; }
+/* End of border code */
+
+#mycontainer {}
 
 #menu{
+	padding-top: 10px;
 	height: 25px;
-	padding:10px;
 	width: 100%;
 }
 
@@ -35,16 +68,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-.center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	float: none !important;
-}
 
-.fl {
-	float: left
-}
 /*
 .title-autowidth{
 	float:left;
@@ -52,31 +76,53 @@ a:hover {
 */
 
 .page-title {
-	font-family: geomanistlight;
-	color: #62548C;
+	font-family: geomanistregular;
+	text-align: center;
 	padding-bottom: 40px;
-	font-size: 54px;
+	font-size: 100px;
+	width: 90%; 
+	max-width: 900px;
+	margin-top: 50px;
+	border-bottom: solid black 5px;
 }
 
-#editbuttons {
-	margin-top: 20px;
-}
-/* Post ****************************************************/
 
+/* Blogroll ****************************************************
+****************************************************************/
+
+/* Each Post */
 .post {
-	font-family: "brelaregular";
+	width: 90%; 
+	max-width: 900px;
+	padding:50px 0 25px;
 }
-
+.title-row{
+	height: 40px;
+}
+#editbuttons button{
+	border: none;
+	font: 18px geomanistlight;
+}
+.edit{color: #2E7984;}
+.delete{color: #C06350;}
 .post-title {
 	float: left;
-	font-size: 30px;
+	font-size: 40px;
 	font-family: geomanistlight;
+	padding-right:20px;
 }
-
+/* This is the actual entry */
 .post-content {
-	font-size: 20px;
+	font-family: geomanistregular;
+	font-size: 18px;
+	line-height: 24px;
 	clear: both;
-	margin-top:25px;
+	margin-top:50px;
+}
+/* White line between divides posts*/
+.post-divider{
+	border-bottom: solid white 10px;
+	width: 90%;
 }
 /* New Post ****************************************************/
 

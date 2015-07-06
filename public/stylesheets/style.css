@@ -5,25 +5,9 @@
 body {
 	padding: 10px;
 }
-/* UTILITY CLASSES ****************************************************
+
+/* Styles for page border *********************************************
 ***********************************************************************/
-/*Vertical Centering using table method*/
-.t-wrapper {display:table;}
-.t-cell {display:table-cell; vertical-align:middle;}
-
-/*Horizontal Block Centering*/
-.center-block {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	float: none !important;
-}
-.width{	
-	width: 90%; 
-	max-width: 900px;
-}
-
-/* Styles for page border */
 #top, #bottom, #left, #right {
 	background: white;
 	position: fixed;
@@ -41,6 +25,24 @@ body {
 #top { top: 0; }
 #bottom { bottom: 0; }
 /* End of border code */
+
+/* UTILITY CLASSES ****************************************************
+***********************************************************************/
+/*Vertical Centering using table method*/
+.t-wrapper {display:table;}
+.t-cell {display:table-cell; vertical-align:middle;}
+
+/*Horizontal Block Centering*/
+.center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	float: none !important;
+}
+.width{	
+	width: 90%; 
+	max-width: 900px;
+}
 
 #mycontainer {}
 
@@ -67,13 +69,6 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
-
-/*
-.title-autowidth{
-	float:left;
-}
-*/
 
 .page-title {
 	font-family: geomanistregular;
@@ -135,7 +130,7 @@ a:hover {
 /* text area */
 
 #newpost-content {
-	font-family: "brelaregular";
+	font-family: "geomanistregular";
 	padding: 20px;
 	position: relative;
 	top: 50px;

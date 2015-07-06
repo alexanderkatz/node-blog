@@ -20,7 +20,10 @@
 			   <p><%= entries[i].content %></p>
 		</div>
 </div>
-<div class="post-divider"></div>
+<!-- White Divider after all but last post -->
+<% if (i <entries.length-1){%>
+	<div class="post-divider"></div>
+<% } %>
 <% } %>
 
 <!-- Include Footer -->

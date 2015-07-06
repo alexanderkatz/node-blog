@@ -36,7 +36,7 @@ body {
 #right { right: 0; }		
 #top, #bottom {
 	left: 0; right: 0;
-	height: 15px;
+	height: 10px;
 }
 #top { top: 0; }
 #bottom { bottom: 0; }

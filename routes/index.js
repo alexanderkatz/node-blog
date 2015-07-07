@@ -4,10 +4,10 @@ module.exports = function(app, passport){
 	// var router = express.Router();
 
 	/* Get All Entries */
-	app.get('/blogroll', function (req, res, next) {
+	app.get('/blogroll', isLoggedIn, function (req, res, next) {
 		var db = req.db;
 		var collection = db.get('entrycollection');
-		collection.find({},{}, function (e,docs) {
+		collection.find({userId : req.user._id},{}, function (e,docs) {
 			res.render('blogroll-view', {
 				title: 'All Posts',
 				"entries" : docs

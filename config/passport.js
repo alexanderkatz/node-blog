@@ -18,17 +18,15 @@ module.exports = function(passport){
 
     // used to serialize the user for the session
     passport.serializeUser(function (user, done){
-        console.log("serializeUser***************************");
+        // console.log("serializeUser***************************");
         done(null, user._id);
     });
 
     // use to deserialize the user
     passport.deserializeUser(function (id, done){
-        console.log("deserializeUser*************************");
+        // console.log("deserializeUser*************************");
         var users = db.get('userlist');
-        console.log("ID: "+id);
         users.findById(id, function(err, user){
-            console.log('entered findById (user): '+user)
             // if there are any errors, return the error
             return done(err, user);
         });
@@ -58,7 +56,6 @@ module.exports = function(passport){
             var users = db.get('userlist');
             // TODO: should be 'local.email'
             users.findOne({'email' : email}, function(err, user){
-                console.log('entered findOne (user): '+user)
                 // if there are any errors, return the error
                 if (err){
                     return done(err);
@@ -113,7 +110,6 @@ module.exports = function(passport){
                 return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
 
             // if the user is found but the password is wrong
-            console.log("password: "+password);
             if (!isValidPassword(password, user)){ // pass user to isValidPassword
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
             }

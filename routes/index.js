@@ -31,9 +31,7 @@ module.exports = function(app, passport){
 
 
 	/* POST to entry. */
-	app.post('/insertpost', isLoggedIn, function (req, res) {
-		console.log("insertpost");
-		
+	app.post('/insertpost', isLoggedIn, function (req, res) {		
 		var db = req.db;
 
 		var title = req.body.title;
@@ -53,7 +51,6 @@ module.exports = function(app, passport){
 			} else {
 				// forward to success page
 				console.log("Success!");
-				console.log("post inserted by: "+req.user._id);
 				res.redirect("blogroll");
 			}
 		});
@@ -62,8 +59,6 @@ module.exports = function(app, passport){
 	/* DELETE entry*/
 	app.delete('/deleteentry', function (req, res) {
 		var db = req.db;
-		// console.log("----------------------------");
-		// console.log(req.body.entryid);
 		var collection = db.get('entrycollection');
 		collection.remove({ _id: req.body.entryid });
 		res.send("delete endpoint hit");

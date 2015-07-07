@@ -31,7 +31,7 @@ module.exports = function(app, passport){
 
 
 	/* POST to entry. */
-	app.post('/insertpost', function (req, res) {
+	app.post('/insertpost', isLoggedIn, function (req, res) {
 		console.log("insertpost");
 		
 		var db = req.db;
@@ -42,6 +42,7 @@ module.exports = function(app, passport){
 		var collection = db.get('entrycollection');
 
 		collection.insert({
+			"userId": req.user._id,
 			"title": title,
 			"content": content
 		}, function (err, doc){
@@ -52,6 +53,7 @@ module.exports = function(app, passport){
 			} else {
 				// forward to success page
 				console.log("Success!");
+				console.log("post inserted by: "+req.user._id);
 				res.redirect("blogroll");
 			}
 		});

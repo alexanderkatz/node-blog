@@ -171,6 +171,11 @@ a:hover {
 	padding-left: 18px;
 }
 
+.cursor-pointer {
+	cursor: pointer;
+	cursor: hand;
+}
+
 @media all and (max-width: 768px) {
   #entrytitleinput,
   #newpost-controls{

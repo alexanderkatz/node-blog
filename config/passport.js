@@ -47,10 +47,11 @@ module.exports = function(passport){
     function (req, username, password, done){
         // asynch
         // user findOne wont fire unless data is sent back
+
         process.nextTick(function(){
             // find a user whose username is the same as the form's username
             // we are checking to see if the user trying to login already exists
-
+        
             // Our code ∆
             // get user collection
             var users = db.get('userlist');
@@ -61,12 +62,13 @@ module.exports = function(passport){
                 }
                 // check to see if there's already a user with that username
                 if (user){
-                    console.log("that email is already taken");
-                    return done(null, false, req.flash('signupMessage', 'that email is already taken'));
+                    console.log("that username is already taken");
+                    return done(null, false, req.flash('signupMessage', 'that username is already taken'));
                 } else {
                     // if there is no user with that username
                     // ∆ create and insert a new user
                     newUser = {
+                        'email': req.body.email,
                         'username': username,
                         'password': generatehash(password)
                     }

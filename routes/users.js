@@ -3,7 +3,13 @@ var router = express.Router();
 
 
 
+router.get('/:username', function(req, res){
+  res.send("Hello Ms. "+req.vhost[0]);
+});
 
+router.get('/:username/profile', function(req, res){
+  res.send("PROFILE:hi");
+});
 
 /* Manual Management of Users *********************************************************
 ***************************************************************************************

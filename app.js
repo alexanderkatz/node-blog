@@ -67,18 +67,18 @@ userApp.use(function(req, res, next){
   username = req.vhost[0]; // username is the "*" 
   // pretend request was for /{username}/* for file serving 
   req.originalUrl = req.url;
-  req.url = '/' + username + req.url;
- 
+  req.url = '/users/' + username + req.url;
+  console.log("Repackages user url: "+req.url); 
   next();
 });
 
-userApp.get('/:username', function(req, res){
-  res.send("hello:hi");
-});
+// userApp.get('/:username', function(req, res){
+//   res.send("hello:hi");
+// });
 
-userApp.get('/:username/profile', function(req, res){
-  res.send("PROFILE:hi");
-});
+// userApp.get('/:username/profile', function(req, res){
+//   res.send("PROFILE:hi");
+// });
 
 // userApp.use(serveStatic('public'));
 app.use(vhost('*.pc.dev', userApp));

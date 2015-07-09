@@ -60,11 +60,11 @@ var userApp = express();
 userApp.set('views', path.join(__dirname, 'views'));
 userApp.set('view engine', 'ejs');
 
-var username;
 userApp.use(function(req, res, next){
   // TODO: check to see that this username is valid
   // if not, 404 them.
-  username = req.vhost[0]; // username is the "*" 
+  var username = req.vhost[0]; // username is the "*"
+  console.log("username: "+username); 
   // pretend request was for /{username}/* for file serving 
   req.originalUrl = req.url;
   req.url = '/users/' + username + req.url;

@@ -18,6 +18,7 @@ function populateTable(){
     var tableContent = "";
 
     // JQuery AJAX call for JSON
+    console.log("entered ajax call to /users/userlist");
     $.getJSON("/users/userlist", function (data){
         // populate our global variable with data
         userListData = data;

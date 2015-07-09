@@ -32,9 +32,16 @@ router.delete('/deleteuser/:id', function(req,res){
 
 // User App -----------------------------------
 
-// GET a user's profile. This will accept any input
+// GET a user's blogroll. This will accept any input
 router.get('/:username', function(req, res){
-  res.send("Hello Ms. "+req.vhost[0]);
+    var db = req.db;
+    var collection = db.get('entrycollection');
+    collection.find({username : req.params.username},{}, function (e,docs) {
+        res.render('blogroll-view', {
+            title: 'All Posts',
+            "entries" : docs
+        });
+    });
 });
 
 router.get('/:username/profile', function(req, res){

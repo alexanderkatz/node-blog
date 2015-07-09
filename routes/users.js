@@ -1,7 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+
+
+
+
+/* Manual Management of Users *********************************************************
+***************************************************************************************
+**************************************************************************************/
+
+/* GET list of users for user table */
 router.get('/userlist', function(req,res){
     var db = req.db;
     var collection = db.get('userlist');
@@ -9,18 +17,6 @@ router.get('/userlist', function(req,res){
     collection.find({},{}, function (e,docs) {
         res.json(docs);
     });
-});
-
-/* POST new user to db */
-router.post('/insertuser', function(req,res){
-	var db=req.db;
-	var collection = db.get('userlist');
-
-	collection.insert(req.body, function(err,result){
-		res.send(
-			(err===null) ? {msg: ''} : {msg: err}
-		);
-	});		
 });
 
 // DELETE a user from the db

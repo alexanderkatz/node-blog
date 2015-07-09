@@ -11,6 +11,7 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
+var vhost        = require('vhost');
 
 var configDB = require('./config/database.js');
 // Database
@@ -53,6 +54,35 @@ app.use(function(req,res,next){
     req.db = db;
     next();
 });
+
+// Vhost code
+var userApp = express();
+userApp.set('views', path.join(__dirname, 'views'));
+userApp.set('view engine', 'ejs');
+
+var username;
+userApp.use(function(req, res, next){
+  // TODO: check to see that this username is valid
+  // if not, 404 them.
+  username = req.vhost[0]; // username is the "*" 
+  // pretend request was for /{username}/* for file serving 
+  req.originalUrl = req.url;
+  req.url = '/' + username + req.url;
+ 
+  next();
+});
+
+userApp.get('/:username', function(req, res){
+  res.send("hello:hi");
+});
+
+userApp.get('/:username/profile', function(req, res){
+  res.send("PROFILE:hi");
+});
+
+// userApp.use(serveStatic('public'));
+app.use(vhost('*.pc.dev', userApp));
+//----------------------------------------------
 
 // Routes
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport

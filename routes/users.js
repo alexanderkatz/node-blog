@@ -33,13 +33,21 @@ router.delete('/deleteuser/:id', function(req,res){
 // User App -----------------------------------
 
 // GET a user's blogroll. This will accept any input
-router.get('/:username', function(req, res){
+router.get('/:username', function(req, res, next){
+    console.log("Viewing "+req.params.username+"'s blogroll");
     var db = req.db;
+    var users = db.get('userlist');
     var collection = db.get('entrycollection');
-    collection.find({username : req.params.username},{}, function (e,docs) {
-        res.render('blogroll-view', {
-            title: 'All Posts',
-            "entries" : docs
+    
+    users.findOne({'username':req.params.username},{}, function (e,user) {
+        // var userId = user._id;
+        console.log("user id: "+user._id);
+
+        collection.find({'userId' : user._id},{}, function (e,docs) {
+            res.render('blogroll-view', {
+                title: 'All Posts',
+                "entries" : docs
+            });
         });
     });
 });

@@ -1,3 +1,4 @@
+// TEST
 module.exports = function(app, passport){
 
 	var express = require('express');

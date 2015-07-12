@@ -81,7 +81,7 @@ userApp.use(function(req, res, next){
 // });
 
 // userApp.use(serveStatic('public'));
-app.use(vhost('*.pc.dev', userApp));
+app.use(vhost('*.purplecrayon.me', userApp));
 //----------------------------------------------
 
 // Routes

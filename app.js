@@ -62,7 +62,6 @@ userApp.set('view engine', 'ejs');
 
 // Handler for the route *.purplecrayon.me
 userApp.use(function(req, res, next){
-
   var username = req.vhost[0]; // username is the "*"
   // Get db
   var db = req.db;
@@ -89,7 +88,7 @@ userApp.use(function(req, res, next){
 });
 
 // Routes
-app.use(vhost('*.purplecrayon.me', userApp));
+app.use(vhost(/([a-zA-Z0-9]+[^www])\.purplecrayon.me/, userApp));
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
 app.use('/users', users);
 

@@ -55,50 +55,54 @@ app.use(function(req,res,next){
     next();
 });
 
-// Vhost code
+// Create mini userApp for handling individual users
 var userApp = express();
 userApp.set('views', path.join(__dirname, 'views'));
 userApp.set('view engine', 'ejs');
 
+// Handler for the route *.purplecrayon.me
 userApp.use(function(req, res, next){
-  // TODO: check to see that this username is valid
-  // if not, 404 them.
+
   var username = req.vhost[0]; // username is the "*"
-  console.log("username: "+username); 
-  // pretend request was for /{username}/* for file serving 
-  req.originalUrl = req.url;
-  req.url = '/users/' + username + req.url;
-  console.log("Repackages user url: "+req.url); 
-  next();
+  // Get db
+  var db = req.db;
+  var users = db.get('userlist');
+
+  // Check to see that username is valid
+  users.findOne({'username':username},{}, function (e,user) {
+    // if invalid we redirect to error page
+    if (user == null){
+      console.log(username+" is an invalid username");
+      res.render('error', {
+        message: "invalid username",
+      });
+    } 
+    // otherwise continue to correct page
+    else{
+      // pretend request was for /{username}/* for file serving 
+      req.originalUrl = req.url;
+      req.url = '/users/' + username + req.url;
+      console.log("Repackages user url: "+req.url);
+      next();
+    } // end else 
+  });
 });
 
-// userApp.get('/:username', function(req, res){
-//   res.send("hello:hi");
-// });
-
-// userApp.get('/:username/profile', function(req, res){
-//   res.send("PROFILE:hi");
-// });
-
-// userApp.use(serveStatic('public'));
-app.use(vhost('*.pc.dev', userApp));
-//----------------------------------------------
-
 // Routes
+app.use(vhost('*.purplecrayon.me', userApp));
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
 app.use('/users', users);
 
 app.listen(port);
 console.log('The magic happens on port ' + port);
 
+// error handlers
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace

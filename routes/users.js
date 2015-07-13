@@ -40,9 +40,6 @@ router.get('/:username', function(req, res, next){
     var collection = db.get('entrycollection');
     
     users.findOne({'username':req.params.username},{}, function (e,user) {
-        // var userId = user._id;
-        console.log("user id: "+user._id);
-
         collection.find({'userId' : user._id},{}, function (e,docs) {
             res.render('blogroll-view', {
                 title: 'All Posts',
@@ -55,6 +52,5 @@ router.get('/:username', function(req, res, next){
 router.get('/:username/profile', function(req, res){
   res.send("PROFILE:hi");
 });
-
 
 module.exports = router;

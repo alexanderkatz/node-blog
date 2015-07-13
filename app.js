@@ -88,7 +88,7 @@ userApp.use(function(req, res, next){
 });
 
 // Routes
-app.use(vhost(/([a-zA-Z0-9]+[^www])\.purplecrayon.me/, userApp));
+app.use(vhost(/\.?([a-zA-Z0-9]+[^www])\.purplecrayon.me/, userApp));
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
 app.use('/users', users);
 

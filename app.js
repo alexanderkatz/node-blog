@@ -88,7 +88,18 @@ userApp.use(function(req, res, next){
 });
 
 // Routes
-app.use(vhost(/([a-zA-Z0-9]+[^www])\.purplecrayon.me/, userApp));
+
+// Redirect all naked URLs to www. URLs
+app.all(/.*/, function(req, res, next) {
+  var host = req.header("host");
+  if (host.match(/^www\..*/i)) {
+    next();
+  } else {
+    res.redirect(301, "http://www." + host + req.url);
+  }
+});
+
+app.use(vhost(/www\.([a-zA-Z0-9]+)\.purplecrayon.me/, userApp));
 require('./routes/index.js')(app, passport); //load our routes and pass in our app and fully configured passport
 app.use('/users', users);
 

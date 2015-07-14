@@ -38,10 +38,17 @@ router.get('/:username', function(req, res, next){
     var db = req.db;
     var users = db.get('userlist');
     var collection = db.get('entrycollection');
-    
+    var view;
+    console.log('req.isAuthenticated(): '+req.isAuthenticated());
+    if (req.isAuthenticated()){
+        view = 'admin-blogroll-view';
+    } else {
+        view = 'blogroll-view';
+    }
+    console.log("displaying view: "+view);
     users.findOne({'username':req.params.username},{}, function (e,user) {
         collection.find({'userId' : user._id},{}, function (e,docs) {
-            res.render('blogroll-view', {
+            res.render(view, {
                 title: 'All Posts',
                 "entries" : docs
             });

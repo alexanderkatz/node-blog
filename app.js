@@ -42,7 +42,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // required for passport
-app.use(session({secret:'hititwithacrayon'}));
+app.use(session({
+  secret:'hititwithacrayon',
+  domain: '.purplecrayon.me'  
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash()); // use connect-flash for flash messages stored in session

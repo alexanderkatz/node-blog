@@ -2,6 +2,15 @@ module.exports = function(app, passport){
 
 	var express = require('express');
 	// var router = express.Router();
+	
+	// Function to print key/val pairs
+	function getKeys(obj){
+		var keys = [];
+		for(var key in obj){
+			keys.push(key);
+			console.log(key+": "+obj[key]);
+			}
+	}
 
 	/* Get All Entries */
 	app.get('/blogroll', isLoggedIn, function (req, res, next) {
@@ -117,6 +126,14 @@ module.exports = function(app, passport){
 	// we will want this protected so you have to be logged in to visit
 	// we will use route middleware to verify this (the isLoggedIn function)
 	app.get('/profile', isLoggedIn, function(req,res){
+		// getKeys(req);
+		console.log("req.cookies ----------------------------");
+		getKeys(req.cookies);
+		console.log("req.headers ----------------------------");
+		getKeys(req.headers);
+
+
+		// getKeys(req.session.cookie);
 		res.render('profile',{
 			title: 'Profile',
 			user: req.user // get the user out of session and passed to template
@@ -141,4 +158,6 @@ function isLoggedIn(req,res,next){
 	else{
 		res.redirect('/');
 	}
+
+// End of export
 }

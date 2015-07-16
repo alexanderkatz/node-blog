@@ -1,6 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
+// Function to print key/val pairs
+function getKeys(obj){
+    var keys = [];
+    for(var key in obj){
+        keys.push(key);
+        console.log(key+": "+obj[key]);
+        }
+}
+
 /* Manual Management of Users *********************************************************
 ***************************************************************************************
 **************************************************************************************/
@@ -34,6 +43,11 @@ router.delete('/deleteuser/:id', function(req,res){
 
 // GET a user's blogroll. This will accept any input
 router.get('/:username', function(req, res, next){
+    console.log("req.cookies ----------------------------");
+    getKeys(req.cookies);
+    console.log("req.headers ----------------------------");
+    getKeys(req.headers);
+    
     console.log("Viewing "+req.params.username+"'s blogroll");
     var db = req.db;
     var users = db.get('userlist');

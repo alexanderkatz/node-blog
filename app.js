@@ -58,6 +58,16 @@ app.use(function(req,res,next){
     next();
 });
 
+// Function to print key/val pairs
+function getKeys(obj){
+    var keys = [];
+    for(var key in obj){
+        keys.push(key);
+        console.log(key+": "+obj[key]);
+    }
+    console.log("----------------------------");
+}
+
 // Create mini userApp for handling individual users
 var userApp = express();
 userApp.set('views', path.join(__dirname, 'views'));

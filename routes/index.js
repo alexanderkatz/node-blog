@@ -3,38 +3,20 @@ module.exports = function(app, passport){
 	var express = require('express');
 	// var router = express.Router();
 	
-	// Function to print key/val pairs
-	function getKeys(obj){
-		var keys = [];
-		for(var key in obj){
-			keys.push(key);
-			console.log(key+": "+obj[key]);
-			}
-	}
-
-	/* Get All Entries */
-	app.get('/blogroll', isLoggedIn, function (req, res, next) {
-		var db = req.db;
-		var collection = db.get('entrycollection');
-		collection.find({userId : req.user._id},{}, function (e,docs) {
-			res.render('blogroll-view', {
-				title: 'All Posts',
-				"entries" : docs
-			});
-		});
-	});
+// Function to print key/val pairs
+function getKeys(obj){
+    var keys = [];
+    for(var key in obj){
+        keys.push(key);
+        console.log(key+": "+obj[key]);
+    }
+    console.log("----------------------------");
+}
 
 	/* GET newpost. */
 	app.get('/newpost', function (req, res) {
 		res.render('newpost-view', {
 			title: 'New Post'
-		});
-	});
-
-	/* GET userlist. */
-	app.get('/userlist', function (req, res) {
-		res.render('userlist-view', {
-			title: 'User List'
 		});
 	});
 
@@ -65,13 +47,6 @@ module.exports = function(app, passport){
 		});
 	});
 
-	/* DELETE entry*/
-	app.delete('/deleteentry', function (req, res) {
-		var db = req.db;
-		var collection = db.get('entrycollection');
-		collection.remove({ _id: req.body.entryid });
-		res.send("delete endpoint hit");
-	});
 
 	// Passport Auth ======================================================================
 
@@ -129,8 +104,8 @@ module.exports = function(app, passport){
 		// getKeys(req);
 		console.log("req.cookies ----------------------------");
 		getKeys(req.cookies);
-		console.log("req.headers ----------------------------");
-		getKeys(req.headers);
+		// console.log("req.headers ----------------------------");
+		// getKeys(req.headers);
 
 
 		// getKeys(req.session.cookie);

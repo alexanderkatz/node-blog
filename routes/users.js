@@ -7,7 +7,8 @@ function getKeys(obj){
     for(var key in obj){
         keys.push(key);
         console.log(key+": "+obj[key]);
-        }
+    }
+    console.log("----------------------------");
 }
 
 /* Manual Management of Users *********************************************************
@@ -45,8 +46,8 @@ router.delete('/deleteuser/:id', function(req,res){
 router.get('/:username', function(req, res, next){
     console.log("req.cookies ----------------------------");
     getKeys(req.cookies);
-    console.log("req.headers ----------------------------");
-    getKeys(req.headers);
+    // console.log("req.headers ----------------------------");
+    // getKeys(req.headers);
     
     console.log("Viewing "+req.params.username+"'s blogroll");
     var db = req.db;

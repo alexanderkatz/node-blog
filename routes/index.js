@@ -13,6 +13,18 @@ function getKeys(obj){
     console.log("----------------------------");
 }
 
+/* Get All Entries */
+	app.get('/blogroll', isLoggedIn, function (req, res, next) {
+		var db = req.db;
+		var collection = db.get('entrycollection');
+		collection.find({userId : req.user._id},{}, function (e,docs) {
+			res.render('admin-blogroll-view', {
+				title: 'All Posts',
+				"entries" : docs
+			});
+		});
+	});
+
 	/* GET newpost. */
 	app.get('/newpost', function (req, res) {
 		res.render('newpost-view', {
@@ -20,6 +32,12 @@ function getKeys(obj){
 		});
 	});
 
+	/* GET userlist. */
+	app.get('/userlist', function (req, res) {
+		res.render('userlist-view', {
+			title: 'User List'
+		});
+	});
 
 	/* POST to entry. */
 	app.post('/insertpost', isLoggedIn, function (req, res) {		
@@ -47,6 +65,13 @@ function getKeys(obj){
 		});
 	});
 
+	/* DELETE entry*/
+	app.delete('/deleteentry', function (req, res) {
+		var db = req.db;
+		var collection = db.get('entrycollection');
+		collection.remove({ _id: req.body.entryid });
+		res.send("delete endpoint hit");
+	});
 
 	// Passport Auth ======================================================================
 

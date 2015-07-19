@@ -71,8 +71,63 @@ router.get('/:username', function(req, res, next){
     });
 });
 
+/* GET newpost. */
+router.get('/:username/newpost', isLoggedIn, function (req, res) {
+    res.render('newpost-view', {
+        title: 'New Post'
+    });
+});
+
+/* POST insert newpost. */
+router.post('/:username/insertpost', isLoggedIn, function (req, res) {       
+    var db = req.db;
+
+    var title = req.body.title;
+    var content = req.body.content;
+
+    var collection = db.get('entrycollection');
+
+    collection.insert({
+        "userId": req.user._id,
+        "title": title,
+        "content": content
+    }, function (err, doc){
+        if (err) {
+            // if it failed, return error
+            console.log("Didn't add to database");
+            res.send("Didn't add to database");
+        } else {
+            // forward to success page
+            console.log("Success!");
+            res.redirect("/");
+        }
+    });
+});
+
+/* DELETE entry from blogroll */
+router.delete('/:username/deleteentry', function (req, res) {
+    var db = req.db;
+    var collection = db.get('entrycollection');
+    collection.remove({ _id: req.body.entryid });
+    res.send("delete endpoint hit");
+});
+
 router.get('/:username/profile', function(req, res){
   res.send("PROFILE:hi");
 });
+
+// route middleware to make sure a user is logged in
+function isLoggedIn(req,res,next){
+    // if user is authenticated in session carry on
+    if (req.isAuthenticated()){
+        return next();
+    }
+    //else redirect them to home page
+    else{
+        res.redirect('/');
+    }
+
+// End of export
+}
 
 module.exports = router;

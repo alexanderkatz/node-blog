@@ -13,18 +13,6 @@ function getKeys(obj){
     console.log("----------------------------");
 }
 
-/* Get All Entries */
-	app.get('/blogroll', isLoggedIn, function (req, res, next) {
-		var db = req.db;
-		var collection = db.get('entrycollection');
-		collection.find({userId : req.user._id},{}, function (e,docs) {
-			res.render('admin-blogroll-view', {
-				title: 'All Posts',
-				"entries" : docs
-			});
-		});
-	});
-
 	/* GET userlist. */
 	app.get('/userlist', function (req, res) {
 		res.render('userlist-view', {

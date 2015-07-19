@@ -65,14 +65,6 @@ function getKeys(obj){
 		});
 	});
 
-	/* DELETE entry*/
-	app.delete('/deleteentry', function (req, res) {
-		var db = req.db;
-		var collection = db.get('entrycollection');
-		collection.remove({ _id: req.body.entryid });
-		res.send("delete endpoint hit");
-	});
-
 	// Passport Auth ======================================================================
 
 	// =====================================

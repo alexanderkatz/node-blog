@@ -8,8 +8,7 @@ function deleteEntry(entryID){
         },
         success: function(result){
             console.log("success with: " + result);
-            // here we need to redisplay the blogroll
-            // location contains information about current url
+            // refresh blogroll
             location.reload();
         }
     });

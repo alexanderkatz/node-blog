@@ -71,6 +71,14 @@ router.get('/:username', function(req, res, next){
     });
 });
 
+/* DELETE entry from blogroll */
+router.delete('/:username/deleteentry', function (req, res) {
+    var db = req.db;
+    var collection = db.get('entrycollection');
+    collection.remove({ _id: req.body.entryid });
+    res.send("delete endpoint hit");
+});
+
 router.get('/:username/profile', function(req, res){
   res.send("PROFILE:hi");
 });

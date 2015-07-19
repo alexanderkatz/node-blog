@@ -25,13 +25,6 @@ function getKeys(obj){
 		});
 	});
 
-	/* GET newpost. */
-	app.get('/newpost', function (req, res) {
-		res.render('newpost-view', {
-			title: 'New Post'
-		});
-	});
-
 	/* GET userlist. */
 	app.get('/userlist', function (req, res) {
 		res.render('userlist-view', {
@@ -39,31 +32,6 @@ function getKeys(obj){
 		});
 	});
 
-	/* POST to entry. */
-	app.post('/insertpost', isLoggedIn, function (req, res) {		
-		var db = req.db;
-
-		var title = req.body.title;
-		var content = req.body.content;
-
-		var collection = db.get('entrycollection');
-
-		collection.insert({
-			"userId": req.user._id,
-			"title": title,
-			"content": content
-		}, function (err, doc){
-			if (err) {
-				// if it failed, return error
-				console.log("Didn't add to database");
-				res.send("Didn't add to database");
-			} else {
-				// forward to success page
-				console.log("Success!");
-				res.redirect("blogroll");
-			}
-		});
-	});
 
 	// Passport Auth ======================================================================
 

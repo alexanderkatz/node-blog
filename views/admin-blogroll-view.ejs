@@ -3,12 +3,15 @@
 <!-- Include Head -->
 <% include header.ejs %>
 
-<!-- New Post Button -->
-<div id="new-post-button" class="center-block width">
-	<div class='box corners'>
-  		<a href="newpost">new post</a>
+<!-- New Post Button 
+	 - anchor wraps div inorder for animation and link to work in tandem -->
+<a href="newpost">
+	<div id="new-post-button" class="center-block width">
+		<div class='box corners'>
+	  		new post
+		</div>
 	</div>
-</div>	
+</a>	
 
 <!-- Entry Title and Edit Buttons -->
 <% for(var i=0; i<entries.length; i++) {%>

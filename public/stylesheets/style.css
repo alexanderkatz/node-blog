@@ -89,7 +89,7 @@ a:hover {
 #new-post-button{
 	margin-top: 50px;
 }
-#new-post-button a{
+#new-post-button{
 	text-decoration: none;
 	color:inherit;
 	font-family: geomanistlight;
@@ -229,13 +229,14 @@ th, td {
 /* Button Classes *********************************************
 **************************************************************/
 
+
 .box {
   position:relative;
   vertical-align: middle;
   color: #939292;
   display: inline-block;
-  height: 45px;
-  line-height: 45px;
+  height: 60px;
+  line-height: 60px;
   text-align: center;
   transition: 0.5s;
   padding: 0 20px;
@@ -252,7 +253,7 @@ th, td {
 .box::before, .box::after {
   width: 100%;
   height:100%;
-  z-index: 3;
+  z-index: 1;
   content:'';
   position: absolute;
   top:0;

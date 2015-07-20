@@ -126,8 +126,16 @@ function isLoggedIn(req,res,next){
     else{
         res.redirect('/');
     }
-
-// End of export
 }
 
+
+// =====================================
+// LOGOUT ==============================
+// =====================================
+router.get('/:username/logout', function(req,res){
+    req.logout();
+    res.redirect('/');
+});
+
+// End of export
 module.exports = router;

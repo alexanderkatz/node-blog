@@ -87,13 +87,6 @@ function getKeys(obj){
 			user: req.user // get the user out of session and passed to template
 		});
 	});
-	// =====================================
-	// LOGOUT ==============================
-	// =====================================
-	app.get('/logout', function(req,res){
-		req.logout();
-		res.redirect('/');
-	});
 };
 
 // route middleware to make sure a user is logged in

@@ -19,8 +19,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 
 // configuration ===============================================================
-
-var db = monk(configDB.url);
+// Get DB Address from environment variable DB_URL
+var db = monk(process.env.DB_URL);
 
 require('./config/passport')(passport); // pass passport for configuration
 

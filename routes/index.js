@@ -13,14 +13,6 @@ function getKeys(obj){
     console.log("----------------------------");
 }
 
-	/* GET userlist. */
-	app.get('/userlist', function (req, res) {
-		res.render('userlist-view', {
-			title: 'User List'
-		});
-	});
-
-
 	// Passport Auth ======================================================================
 
 	// =====================================

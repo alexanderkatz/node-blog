@@ -113,7 +113,6 @@ userApp.use(function(req, res, next){
 
 // Redirect all naked URLs to www. URLs
 app.all(/.*/, function(req, res, next) {
-  console.log("ENV VARS ===========================================================================");
   var host = req.header("host");
   if (host.match(/^www\..*/i)) {
     next();
@@ -127,7 +126,7 @@ require('./routes/index.js')(app, passport); //load our routes and pass in our a
 app.use('/users', users);
 
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('The CONFIG magic happens on port ' + port);
 
 // error handlers
 // catch 404 and forward to error handler

@@ -20,7 +20,6 @@ var monk = require('monk');
 
 // configuration ===============================================================
 // Get DB Address from environment variable DB_URL
-console.log("ENV VARS ===========================================================================");
 var db = monk(process.env.DB_URL);
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -114,6 +113,7 @@ userApp.use(function(req, res, next){
 
 // Redirect all naked URLs to www. URLs
 app.all(/.*/, function(req, res, next) {
+  console.log("ENV VARS ===========================================================================");
   var host = req.header("host");
   if (host.match(/^www\..*/i)) {
     next();

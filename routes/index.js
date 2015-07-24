@@ -21,8 +21,7 @@ function getKeys(obj){
 	app.get('/', function (req, res) {
 		res.render('index', {
 			title: 'Home',
-			message: req.flash('loginMessage'),
-			message: req.flash('signupMessage')
+			message: req.flash('errMessage'),
 		});
 	});
 	// =====================================

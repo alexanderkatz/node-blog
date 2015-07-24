@@ -22,7 +22,7 @@ function getKeys(obj){
 		res.render('index', {
 			title: 'Home',
 			message: req.flash('loginMessage'),
-			message: req.flash('signUpMessage')
+			message: req.flash('signupMessage')
 		});
 	});
 	// =====================================

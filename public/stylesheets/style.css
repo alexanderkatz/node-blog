@@ -6,7 +6,7 @@
 body {
 	padding: 10px;
 }
-input{	
+button, input{	
 	outline: none;
 }
 
@@ -54,16 +54,22 @@ input{
     right: 0;
     top: 10px;
   	margin: 0 auto;
-
 	width:300px;
 	height: 50px;
 	line-height: 50px;
 	background: white;
-
 	color:red;
 	font-family: geomanistregular;
 	text-align: center;
+}
+/* Buttons */
 
+.btn-prpl{
+	border: 1px solid #762A90;
+	color: #762A90;
+}
+.btn-prpl:hover{
+	border: 5px solid #762A90;
 }
 
 /* HEADER ****************************************************
@@ -121,9 +127,6 @@ input{
 #login-form button{
 	width: 56px;
 	height: 30px;
-	border: 1px solid #762A90;
-	outline: none;
-
 }
 /* SIGNUP */
 #signup-text{
@@ -136,6 +139,7 @@ input{
 	margin-top: 25px;
 	width:400px;
 	font-family: geomanistlight;
+	padding-bottom: 100px;
 }
 #signup-form .form-group {
 	height: 45px;
@@ -148,7 +152,11 @@ input{
 	float: right;
 
 }
-
+#signup-form button{
+	width: 75px;
+	height: 45px;
+	float: right
+}
 
 #menu{
 	padding-top: 10px;

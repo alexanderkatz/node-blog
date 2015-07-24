@@ -13,7 +13,6 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var vhost        = require('vhost');
 
-//var configDB = require('./config/database.js');
 // Database
 var mongo = require('mongodb');
 var monk = require('monk');

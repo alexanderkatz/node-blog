@@ -5,8 +5,7 @@ var flash = require('connect-flash');
 // load our db
 var mongo = require('mongodb');
 var monk = require('monk');
-var configDB = require('./database.js');
-var db = monk(configDB.url);
+var db = monk(process.env.DB_URL);
 
 // expose this function to our app using module.exports
 module.exports = function(passport){
@@ -63,7 +62,7 @@ module.exports = function(passport){
                 // check to see if there's already a user with that username
                 if (user){
                     console.log("that username is already taken");
-                    return done(null, false, req.flash('signupMessage', 'that username is already taken'));
+                    return done(null, false, req.flash('errMessage', 'that username is already taken'));
                 } else {
                     // if there is no user with that username
                     // ∆ create and insert a new user
@@ -108,11 +107,11 @@ module.exports = function(passport){
 
             // if no user is found, return the message
             if (!user)
-                return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                return done(null, false, req.flash('errMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
 
             // if the user is found but the password is wrong
             if (!isValidPassword(password, user)){ // pass user to isValidPassword
-                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
+                return done(null, false, req.flash('errMessage', 'Oops! Wrong password.')); // create the errMessage and save it to session as flashdata
             }
             // all is well, return successful user
             return done(null, user);

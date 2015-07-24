@@ -124,9 +124,8 @@ function isLoggedIn(req,res,next){
 // =====================================
 router.get('/:username/logout', function(req,res){
     req.logout();
-    
-    // This will only work on dev because port is specified
-    res.redirect(302, 'http://www.purplecrayon.me:8080');
+    // Redirect to homepage    
+    res.redirect(302, process.env.HOSTNAME);
 });
 
 // End of export

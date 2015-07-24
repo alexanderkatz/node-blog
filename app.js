@@ -13,14 +13,14 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var vhost        = require('vhost');
 
-var configDB = require('./config/database.js');
+//var configDB = require('./config/database.js');
 // Database
 var mongo = require('mongodb');
 var monk = require('monk');
 
 // configuration ===============================================================
-
-var db = monk(configDB.url);
+// Get DB Address from environment variable DB_URL
+var db = monk(process.env.DB_URL);
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -44,16 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // required for passport
 app.use(session({
-  secret:'hititwithacrayon',
+  secret:process.env.PASSPORT_SECRET,
   cookie:{domain:'.purplecrayon.me'}
 }));
-// app.use(function(req, res, next) {
-//     res.header('Access-Control-Allow-Credentials', true);
-//     res.header('Access-Control-Allow-Origin', req.headers.origin);
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-//     next();
-// });
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -126,7 +119,7 @@ require('./routes/index.js')(app, passport); //load our routes and pass in our a
 app.use('/users', users);
 
 app.listen(port);
-console.log('The magic happens on port ' + port);
+console.log('The CONFIG magic happens on port ' + port);
 
 // error handlers
 // catch 404 and forward to error handler

@@ -15,16 +15,6 @@ function getKeys(obj){
 ***************************************************************************************
 **************************************************************************************/
 
-/* GET list of users for user table */
-router.get('/userlist', function(req,res){
-    var db = req.db;
-    var collection = db.get('userlist');
-
-    collection.find({},{}, function (e,docs) {
-        res.json(docs);
-    });
-});
-
 // DELETE a user from the db
 router.delete('/deleteuser/:id', function(req,res){
     var db = req.db;

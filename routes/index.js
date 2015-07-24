@@ -13,14 +13,6 @@ function getKeys(obj){
     console.log("----------------------------");
 }
 
-	/* GET userlist. */
-	app.get('/userlist', function (req, res) {
-		res.render('userlist-view', {
-			title: 'User List'
-		});
-	});
-
-
 	// Passport Auth ======================================================================
 
 	// =====================================
@@ -28,43 +20,28 @@ function getKeys(obj){
 	// =====================================
 	app.get('/', function (req, res) {
 		res.render('index', {
-			title: 'Home'
+			title: 'Home',
+			message: req.flash('loginMessage'),
+			message: req.flash('signupMessage')
 		});
 	});
 	// =====================================
 	// LOGIN ========
 	// =====================================
-	app.get('/login', function (req, res) {
-		res.render('login', {
-			title: 'Login',
-			// render the page and pass in any flash data if it exists
-			message: req.flash('loginMessage')
-		});
-	});
-
 	// process the login form
 	app.post('/login', passport.authenticate('local-login', {
 		successRedirect : '/profile', // redirect to the secure profile section
-		failureRedirect: '/login', // redirect back to the login page if error
+		failureRedirect: '/', // redirect back to the login page if error
 		failureFlash: true // allow flash messages
 	}));
 
 	// =====================================
 	// SIGNUP ==============================
 	// =====================================
-	// show the signup form
-	app.get('/signup', function(req,res){
-		res.render('signup',{
-			title: 'Signup',
-			// render the page and pass in any flash data if it exists
-			message: req.flash('signUpMessage')
-		});
-	});
-
 	// process the login form
 	app.post('/signup', passport.authenticate('local-signup', {
 		successRedirect : '/profile',	// redirect to the secure profile section
-		failureRedirect : '/signup', 	// redirect back to signup page if there's an error
+		failureRedirect : '/', 	// redirect back to signup page if there's an error
 		failureFlash : true		// allow flash messages
 	}));
 	

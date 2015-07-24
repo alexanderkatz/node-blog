@@ -15,6 +15,10 @@
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
 
 </head>
+<% if (message.length > 0) { %>
+    <div class="error"><%= message %></div>
+<% } %>
+
 <div id="header" class="center-block">
     <div id="logo">
         <img src="images/logo.svg">

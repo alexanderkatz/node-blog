@@ -47,6 +47,24 @@ input{
 	width: 90%; 
 	max-width: 900px;
 }
+/*Error Message*/
+.error{
+	position: absolute;
+	left: 0;
+    right: 0;
+    top: 10px;
+  	margin: 0 auto;
+
+	width:300px;
+	height: 50px;
+	line-height: 50px;
+	background: white;
+
+	color:red;
+	font-family: geomanistregular;
+	text-align: center;
+
+}
 
 /* HEADER ****************************************************
 **************************************************************/
@@ -69,7 +87,7 @@ input{
 #copy{
 	text-align: center;
 	clear: both;
-	margin-top: 115px;
+	margin-top: 100px;
 	max-width: 600px;
 }
 #copy h1{

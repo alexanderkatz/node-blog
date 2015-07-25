@@ -19,11 +19,17 @@ function getKeys(obj){
 	// HOME PAGE (with login links) ========
 	// =====================================
 	app.get('/', function (req, res) {
+		// If user is logged in redirect them to their blogroll
+		if (isLoggedInBool(req)){
+			// cannot hardcode address because port is included.
+		    res.redirect(301, "http://www." + req.user.username + process.env.DOMAIN);
+		}
+		console.log("User not logged in, render home");
 		res.render('index', {
-			title: 'Home',
-			message: req.flash('errMessage'),
+			title: 'Home'
 		});
 	});
+
 	// =====================================
 	// LOGIN ========
 	// =====================================

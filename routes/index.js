@@ -22,7 +22,7 @@ function getKeys(obj){
 		// If user is logged in redirect them to their blogroll
 		if (isLoggedInBool(req)){
 			// cannot hardcode address because port is included.
-		    res.redirect(301, "http://www." + req.user.username + "." + process.env.DOMAIN);
+		    res.redirect(307, "http://www." + req.user.username + "." + process.env.DOMAIN);
 		}
 		console.log("User not logged in, render home");
 		res.render('index', {
@@ -83,17 +83,7 @@ function isLoggedIn(req,res,next){
 		res.redirect('/');
 	}
 }
-	app.get('/', function (req, res) {
-		// If user is logged in redirect them to their blogroll
-		if (isLoggedInBool(req)){
-			// cannot hardcode address because port is included.
-		    res.redirect(301, "http://www." + req.user.username + process.env.DOMAIN);
-		}
-		console.log("User not logged in, render home");
-		res.render('index', {
-			title: 'Home'
-		});
-	});
+
 // isLoggedInBool
 // returns true or false
 function isLoggedInBool(req){

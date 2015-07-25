@@ -22,11 +22,12 @@ function getKeys(obj){
 		// If user is logged in redirect them to their blogroll
 		if (isLoggedInBool(req)){
 			// cannot hardcode address because port is included.
-		    res.redirect(301, "http://www." + req.user.username + process.env.DOMAIN);
+		    res.redirect(301, "http://www." + req.user.username + "." + process.env.DOMAIN);
 		}
 		console.log("User not logged in, render home");
 		res.render('index', {
-			title: 'Home'
+			title: 'Home',
+			message: req.flash('errMessage')
 		});
 	});
 
@@ -69,7 +70,7 @@ function getKeys(obj){
 			user: req.user // get the user out of session and passed to template
 		});
 	});
-};
+
 
 // route middleware to make sure a user is logged in
 function isLoggedIn(req,res,next){
@@ -81,6 +82,25 @@ function isLoggedIn(req,res,next){
 	else{
 		res.redirect('/');
 	}
-
+}
+	app.get('/', function (req, res) {
+		// If user is logged in redirect them to their blogroll
+		if (isLoggedInBool(req)){
+			// cannot hardcode address because port is included.
+		    res.redirect(301, "http://www." + req.user.username + process.env.DOMAIN);
+		}
+		console.log("User not logged in, render home");
+		res.render('index', {
+			title: 'Home'
+		});
+	});
+// isLoggedInBool
+// returns true or false
+function isLoggedInBool(req){
+	if (req.isAuthenticated()){
+		return true;
+	}
+	return false;
+}
 // End of export
 }

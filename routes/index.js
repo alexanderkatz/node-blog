@@ -21,8 +21,7 @@ function getKeys(obj){
 	app.get('/', function (req, res) {
 		res.render('index', {
 			title: 'Home',
-			message: req.flash('loginMessage'),
-			message: req.flash('signupMessage')
+			message: req.flash('errMessage'),
 		});
 	});
 	// =====================================
@@ -63,13 +62,6 @@ function getKeys(obj){
 			title: 'Profile',
 			user: req.user // get the user out of session and passed to template
 		});
-	});
-	// =====================================
-	// LOGOUT ==============================
-	// =====================================
-	app.get('/logout', function(req,res){
-		req.logout();
-		res.redirect('/');
 	});
 };
 

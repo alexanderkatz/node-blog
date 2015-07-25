@@ -10,6 +10,8 @@ button, input{
 	outline: none;
 }
 
+
+
 /* Styles for page border *********************************************
 ***********************************************************************/
 #top, #bottom, #left, #right {
@@ -47,6 +49,16 @@ button, input{
 	width: 90%; 
 	max-width: 900px;
 }
+/* Gray Link: Purple on Hover*/
+.link{
+	text-decoration: none;
+	color:#939292;
+}
+.link:hover{
+	color: #782D8E;
+	text-decoration: none;
+}
+
 /*Error Message*/
 .error{
 	position: absolute;
@@ -110,7 +122,6 @@ button, input{
 	width: 85%;
 	max-width: 882px;
 	margin-top: 55px;
-
 }
 /* LOGIN */
 #login-form{
@@ -193,6 +204,13 @@ a:hover {
 	border-bottom: solid black 5px;
 }
 
+#logoutButton{
+	position: absolute;
+	top:50px;
+	right:50px;
+	font-family: geomanistregular;
+
+}
 
 /* Blogroll ****************************************************
 ****************************************************************/

@@ -9,7 +9,9 @@ body {
 button, input{	
 	outline: none;
 }
-
+a{
+	text-decoration: none !important;
+}
 
 
 /* Styles for page border *********************************************
@@ -218,11 +220,23 @@ a:hover {
 /* New Post Button */
 #new-post-button{
 	margin-top: 50px;
-}
-#new-post-button{
-	text-decoration: none;
-	color:inherit;
+	width: 100px;
+	height: 50px;
+  	line-height: 50px;
+  	text-align: center;
 	font-family: geomanistlight;
+	border: 2px solid #939292;
+}
+#new-post-button a{
+	display:block; 
+	height:100%;
+	color: #939292;
+}
+#new-post-button:hover{
+	border: 2px solid #652C90;
+}
+#new-post-button a:hover{
+	color: #652C90;
 }
 
 /* Each Post */
@@ -354,57 +368,4 @@ th, td {
 }
 #newpost-content {
 	top: 25px;
-}
-
-/* Button Classes *********************************************
-**************************************************************/
-
-
-.box {
-  position:relative;
-  vertical-align: middle;
-  color: #939292;
-  display: inline-block;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  transition: 0.5s;
-  padding: 0 20px;
-  cursor: pointer;
-  border: 2px solid #939292;
-  -webkit-transition:0.5s;
-}
-
-.box:hover {
-  border: 2px solid #652C90;
-  color: #652C90;
-}
-
-.box::before, .box::after {
-  width: 100%;
-  height:100%;
-  z-index: 1;
-  content:'';
-  position: absolute;
-  top:0;
-  left:0;
-  box-sizing: border-box;
-  -webkit-transform: scale(0);
-  transition: 0.5s;
-}
-
-.corners::before {
-  border-bottom: 3px solid #652C90;
-  border-left: 3px solid #652C90;
-  -webkit-transform-origin: 0 100%;
-}
-
-.corners::after {
-  border-top: 3px solid #652C90;
-  border-right: 3px solid #652C90;
-  -webkit-transform-origin: 100% 0%;
-}
-
-.box:hover::after, .box:hover::before {
-  -webkit-transform: scale(1);
 }

@@ -1,8 +1,10 @@
+
 * {
 	background-color: rgb(242, 243, 241);
 	font-family: geomanistregular;
 }
-
+/* HTML TAGS **********************************************************
+***********************************************************************/
 body {
 	padding: 10px;
 }
@@ -12,7 +14,6 @@ button, input{
 a{
 	text-decoration: none !important;
 }
-
 
 /* Styles for page border *********************************************
 ***********************************************************************/
@@ -101,7 +102,8 @@ a{
 	/*width:40%;*/
 	width: 200px;
 }
-/* HOME ****************************************************
+
+/* HOME ******************************************************
 **************************************************************/
 /* COPY */
 #copy{
@@ -171,30 +173,8 @@ a{
 	float: right
 }
 
-#menu{
-	padding-top: 10px;
-	height: 25px;
-	width: 100%;
-}
-
-#menu ul{
-	float:right;
-}
-
-#menu ul li{
-	float: left; 
-	padding-right: 15px;
-}
-
-a {
-	color: #00B7FF;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
+/* Page Title **************************************************
+****************************************************************/
 .page-title {
 	font-family: geomanistregular;
 	text-align: center;
@@ -204,14 +184,6 @@ a:hover {
 	max-width: 900px;
 	margin-top: 50px;
 	border-bottom: solid black 5px;
-}
-
-#logoutButton{
-	position: absolute;
-	top:50px;
-	right:50px;
-	font-family: geomanistregular;
-
 }
 
 /* Blogroll ****************************************************
@@ -273,16 +245,24 @@ a:hover {
 	border-bottom: solid white 10px;
 	width: 90%;
 }
-/* New Post ****************************************************/
 
+#logoutButton{
+	position: absolute;
+	top:50px;
+	right:50px;
+	font-family: geomanistregular;
+}
+
+/* New Post Page *********************************************
+**************************************************************/
 #newpost-top,
 #newpost-top a,
 #entrytitleinput {
 	font-family: geomanistlight;
 	color: #62548C;
 }
-/* text area */
 
+/* text area */
 #newpost-content {
 	font-family: "geomanistregular";
 	padding: 20px;
@@ -344,16 +324,6 @@ a:hover {
   #newpost-content{
     top: 25px;
   } 
-}
-
-/*User Table*/
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-th, td {
-  padding: 5px;
 }
 
 #entrytitleinput,

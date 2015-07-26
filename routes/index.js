@@ -43,11 +43,16 @@ function getKeys(obj){
 	// SIGNUP ==============================
 	// =====================================
 	// process the login form
-	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/profile',	// redirect to the secure profile section
-		failureRedirect : '/', 	// redirect back to signup page if there's an error
-		failureFlash : true		// allow flash messages
-	}));
+	app.post('/signup', function(req, res, next) {
+	  passport.authenticate('local-signup', function(err, user, info) {
+	    if (err) { return next(err); }
+	    if (!user) { return res.redirect('/'); }
+	    req.logIn(user, function(err) {
+	      if (err) { return next(err); }
+	      return res.redirect("http://www." + user.username + "." + process.env.DOMAIN);
+	    });
+	  })(req, res, next);
+	});
 	
 	// =====================================
 	// PROFILE SECTION =====================

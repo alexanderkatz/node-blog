@@ -15,10 +15,12 @@ function deleteEntry(entryID){
 }
 
 $("#publish-post").click(function(){
+    var data = $("#entryform").serializeArray();
+    data[1].value = CKEDITOR.instances.newpostContent.getData();
     $.ajax({
         url: '/insertpost',
         type: 'POST',
-        data: $("#entryform").serializeArray(),
+        data: data,
         error: function(result){
             console.log("error: "+result);
         },

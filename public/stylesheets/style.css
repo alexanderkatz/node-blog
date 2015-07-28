@@ -299,11 +299,8 @@ a{
 #newpost-controls {
 	float: right;
 	font-size: 24px;
-	padding: 0px;
-	margin: 0px;
-	padding-right: 30px;
+	margin: 10px 30px 0px 0px;
 }
-
 #newpost-controls li {
 	list-style: none;
 	float: left;
@@ -315,7 +312,9 @@ a{
 	cursor: hand;
 }
 
+
 @media all and (max-width: 600px) {
+	.page-title{font-size: 50px}
 	#header{
 		margin-top: 15px;
 		height: auto;
@@ -371,34 +370,28 @@ a{
 		margin: 15px auto 10px auto;
 	}
 
-
-
-
-  #entrytitleinput,
-  #newpost-controls{
-    float:none;
-    padding-top: 25px;
-    padding-left: 0px;
-  }
-  #newpost-controls li{
-    padding-left: 0px;
-    padding-right: 18px;
-  }
-  #newpost-content{
-    top: 25px;
-  } 
+	/*New Post*/
+	#entrytitleinput,
+	#newpost-controls {
+		float: none;
+		padding-top: 10px;
+	}
+	#newpost-controls li {
+		font-size: 20px;
+		padding: 0px 10px 0px 0px;
+	}
+	#newpost-content{top:25px;}
 }
 
-#entrytitleinput,
-#newpost-controls {
-	float: none;
-	padding-top: 25px;
-	padding-left: 0px;
-}
-#newpost-controls li {
-	padding-left: 0px;
-	padding-right: 18px;
-}
+
+
+  
+
+
+/*
+
+
 #newpost-content {
 	top: 25px;
 }
+*/

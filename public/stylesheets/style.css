@@ -314,13 +314,14 @@ a{
 	cursor: hand;
 }
 
-@media all and (max-width: 736px) {
-
-	#header{max-width: 1130px;}
-	#logo{margin-left: 15px;}
-	#login-form{margin-right: 15px;}
-
-
+@media all and (max-width: 768px) {
+	#header{margin-top: 15px;}
+	/* Center Logo */
+	#logo{float: none;}
+	#logo img{
+		margin: auto; 
+		display:block;
+	}
 
   #entrytitleinput,
   #newpost-controls{

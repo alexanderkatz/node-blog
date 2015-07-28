@@ -128,7 +128,8 @@ a{
 #home-hr{
 	width: 85%;
 	max-width: 882px;
-	margin-top: 55px;
+	/*top, right, bottom, left*/
+	margin: 55px auto 45px auto;
 }
 /* LOGIN */
 #login-form{
@@ -152,8 +153,8 @@ a{
 	font-family: geomanistregular;
 	font-size: 38px;
 	text-align: center;
-	margin-top: 45px;
-}
+/*	margin-top: 45px;
+*/}
 #signup-form{
 	margin-top: 25px;
 	width:400px;
@@ -314,14 +315,64 @@ a{
 	cursor: hand;
 }
 
-@media all and (max-width: 768px) {
-	#header{margin-top: 15px;}
+@media all and (max-width: 600px) {
+	#header{
+		margin-top: 15px;
+		height: auto;
+	}
 	/* Center Logo */
 	#logo{float: none;}
 	#logo img{
 		margin: auto; 
 		display:block;
 	}
+
+	/* Login Form */
+	#login-form{
+		float: none;
+		display: block;
+		margin: auto;
+	}
+	#login-form input, #login-form button{
+		margin-top: 10px;
+		width: 100%;
+		height: 35px;		
+	}
+	/* Signup Form */
+	#login-form, #signup-form{
+		width: 90%;
+		max-width: 400px;
+	}
+	#signup-form .form-group{
+		height: auto;
+	}
+	#signup-form label{
+		display: block;
+		font-size: 16px;
+	}
+	#signup-form input{
+		float: none;
+	    margin-top: 5px;
+	    margin-bottom: 15px;	
+	    width: 100%;	
+	}
+
+	/* Copy */
+	#copy{margin-top: 25px;}
+	#copy h1{font-size: 28px;}
+	#copy p{
+		font-size: 18px;
+		line-height: 28px;
+	    max-width: 400px;
+    	margin: 10px auto;
+	}
+	#signup-text{font-size: 22px;}
+	#home-hr{
+		margin: 15px auto 10px auto;
+	}
+
+
+
 
   #entrytitleinput,
   #newpost-controls{

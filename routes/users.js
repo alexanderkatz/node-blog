@@ -114,10 +114,9 @@ function isLoggedIn(req,res,next){
     }
     //else redirect them to home page
     else{
-        res.redirect('/');
+        res.redirect(process.env.HOSTNAME);
     }
 }
-
 
 // =====================================
 // LOGOUT ==============================

@@ -114,10 +114,18 @@ function isLoggedIn(req,res,next){
     }
     //else redirect them to home page
     else{
-        res.redirect('/');
+        res.redirect(process.env.HOSTNAME);
     }
-
-// End of export
 }
 
+// =====================================
+// LOGOUT ==============================
+// =====================================
+router.get('/:username/logout', function(req,res){
+    req.logout();
+    // Redirect to homepage    
+    res.redirect(302, process.env.HOSTNAME);
+});
+
+// End of export
 module.exports = router;

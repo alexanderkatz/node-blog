@@ -229,7 +229,7 @@ a{
 	border: none;
 	font: 18px geomanistlight;
 }
-.edit{color: #2E7984;}
+.edit{color: #2E7984; display: none;}
 .delete{color: #C06350;}
 .post-title {
 	float: left;

@@ -178,6 +178,10 @@ a{
 	float: right
 }
 
+#signup-form #username-field {
+	text-transform: lowercase;
+}
+
 /* Page Title **************************************************
 ****************************************************************/
 .page-title {

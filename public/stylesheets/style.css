@@ -178,7 +178,8 @@ a{
 	float: right
 }
 
-#signup-form #username-field {
+/* Username field for both login and signup */
+.username-field {
 	text-transform: lowercase;
 }
 

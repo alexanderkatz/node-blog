@@ -47,6 +47,10 @@ module.exports = function(passport){
         // asynch
         // user findOne wont fire unless data is sent back
 
+        // convert username to lowercase so that you can't have two users
+        // with the same subdomain
+        username = username.toLowerCase();
+        
         process.nextTick(function(){
             // find a user whose username is the same as the form's username
             // we are checking to see if the user trying to login already exists

@@ -401,6 +401,12 @@ a{
 		margin: 15px auto 10px auto;
 	}
 
+	/*Blogroll*/
+	#logoutButton{
+		top: 25px;
+	    right: 25px;
+	}	
+
 	/*New Post*/
 	#entrytitleinput,
 	#newpost-controls {
@@ -413,16 +419,3 @@ a{
 	}
 	#newpost-content{top:25px;}
 }
-
-
-
-  
-
-
-/*
-
-
-#newpost-content {
-	top: 25px;
-}
-*/

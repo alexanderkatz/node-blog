@@ -47,6 +47,10 @@ module.exports = function(passport){
         // asynch
         // user findOne wont fire unless data is sent back
 
+        // convert username to lowercase so that you can't have two users
+        // with the same subdomain
+        username = username.toLowerCase();
+
         process.nextTick(function(){
             // find a user whose username is the same as the form's username
             // we are checking to see if the user trying to login already exists
@@ -94,9 +98,13 @@ module.exports = function(passport){
         passwordField : 'password',
         passReqToCallback : true // allows us to passback the entire req to the callback
     },
-    function(req, username, password, done){ // callback with username and password from our form
+    function (req, username, password, done){ // callback with username and password from our form
         // find a user whose username is the same as the forms username
         // we are checking to see if the user trying to login already exists
+
+        // convert username to lowercase so that you can't have two users
+        // with the same subdomain
+        username = username.toLowerCase();
 
         // Our code ∆
         var users = db.get('userlist'); // get user collection

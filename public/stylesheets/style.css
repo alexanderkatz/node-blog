@@ -178,6 +178,11 @@ a{
 	float: right
 }
 
+/* Username field for both login and signup */
+.username-field {
+	text-transform: lowercase;
+}
+
 /* Page Title **************************************************
 ****************************************************************/
 .page-title {

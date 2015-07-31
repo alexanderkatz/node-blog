@@ -73,7 +73,7 @@ router.post('/:username/insertpost', isLoggedIn, function (req, res) {
     var db = req.db;
 
     var title = req.body.title;
-    var content = req.body.content;
+    var content = req.body.newpostContent;
 
     var collection = db.get('entrycollection');
 

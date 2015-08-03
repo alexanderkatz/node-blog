@@ -310,12 +310,13 @@ a{
 
 /* CKEditor */
 #cke_newpostContent {
-    padding-top: 60px;
+    padding: 60px 0px;
+    /*padding-bottom: 60px;*/
     border: none;
     box-shadow: none;
 }
 
-#entryform {}
+#entryform {margin-top: 20px;}
 
 #entrytitleinput {
 	font-size: 30px;

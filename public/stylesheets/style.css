@@ -199,6 +199,17 @@ a{
 /* Blogroll ****************************************************
 ****************************************************************/
 
+/* Change Title */
+#title-form input{margin:10px 0px;}
+#title-button{
+	cursor: pointer;
+	width: 100px;
+	height: 25px;
+  	line-height: 25px;
+  	text-align: center;
+  	border: solid black 1px;
+}
+
 /* New Post Button */
 #new-post-button{
 	margin-top: 50px;

@@ -33,6 +33,26 @@ $("#publish-post").click(function(){
     });
 });
 
+// User Changes Title of Blog
+$("#title-button").click(function(){
+    var data = $("#blogtitle-form").serializeArray();
+    console.log(data[0]);
+    $.ajax({
+        url: '/changeblogtitle',
+        type: 'POST',
+        data: data,
+        error: function(result){
+            console.log("error: "+result);
+        },
+        success: function(result){
+        console.log("success with: " + result);
+        // here we need to redisplay the blogroll
+        //         // location contains information about current url
+        window.location.replace("/");
+        }
+    });
+});
+
 
 // POST a new entry
 // function postEntry(){

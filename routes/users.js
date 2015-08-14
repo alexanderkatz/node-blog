@@ -102,6 +102,15 @@ router.delete('/:username/deleteentry', function (req, res) {
     res.send("delete endpoint hit");
 });
 
+/* POST user changes title of their blogroll */
+router.post('/:username/changeblogtitle', isLoggedIn, function (req, res){
+    // Get blogtitle from req
+    var blogtitle = req.body.blogtitle;
+    // Enter title in db
+    // var db = req.db;
+    // var collection 
+});
+
 router.get('/:username/profile', function(req, res){
   res.send("PROFILE:hi");
 });
